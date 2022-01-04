@@ -8,13 +8,13 @@ module.exports =  {
     "synchronize": false,
     "logging": false,
     "entities": [
-       "src/entity/**/*.ts"
+       "src/entity/**/*.{js,ts}"
     ],
     "migrations": [
-       "src/migration/**/*.ts"
+       "src/migration/**/*.{js,ts}"
     ],
     "subscribers": [
-       "src/subscriber/**/*.ts"
+       "src/subscriber/**/*.{js,ts}"
     ],
    //  specify the directory with which all our migration, entity and subscription files will be created when we run their respective cli command
     "cli": {
