@@ -8,10 +8,10 @@ module.exports =  {
     "synchronize": false,
     "logging": false,
     "entities": [
-       "src/entity/**/*.{js,ts}"
+       "dist/**/entities/*.entity.{ts,js}"
     ],
     "migrations": [
-       "src/migration/**/*.{js,ts}"
+       "dist/migration/**/*.{js,ts}"
     ],
     "subscribers": [
        "src/subscriber/**/*.{js,ts}"
