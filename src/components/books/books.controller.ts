@@ -20,8 +20,9 @@ export class BooksController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string, @Res() res: Response): Response {
-    let book = this.booksService.findOne(+id)
+  async findOne(@Param('id') id: string, @Res() res: Response): Promise<Response> {
+    let book = await this.booksService.findOne(+id)
+    console.log(book);
     if(book) {
       return res.status(HttpStatus.OK).json(book)
     }
