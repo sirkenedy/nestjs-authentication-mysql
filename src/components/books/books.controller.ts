@@ -10,7 +10,7 @@ export class BooksController {
   constructor(private readonly booksService: BooksService) {}
 
   @Post()
-  create(@Body() createBookDto: CreateBookDto, @Res() res: Response) {
+  create(@Body() createBookDto: CreateBookDto) {
     return this.booksService.create(createBookDto);
   }
 
@@ -22,10 +22,7 @@ export class BooksController {
   @Get(':id')
   async findOne(@Param('id') id: string, @Res() res: Response): Promise<Response> {
     let book = await this.booksService.findOne(+id)
-    console.log(book);
-    if(book) {
-      return res.status(HttpStatus.OK).json(book)
-    }
+    if(book) return res.status(HttpStatus.OK).json(book)
     return res.status(HttpStatus.NOT_FOUND).json({"error" : "This resource  no longer exist or has been removed"})
   }
 
