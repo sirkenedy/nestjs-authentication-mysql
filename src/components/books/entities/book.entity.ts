@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Users as User } from 'src/components/users/entities/user.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Books {
@@ -22,4 +23,7 @@ export class Books {
 
   @Column({ default: null, type:"datetime" })
   updated_at?:  Date;
+
+  @ManyToOne(() => User, user => user.books)
+    user: User;
 }

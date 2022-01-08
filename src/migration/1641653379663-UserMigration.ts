@@ -1,10 +1,10 @@
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+import {MigrationInterface, QueryRunner, Table } from "typeorm";
 
-export class BookMigration1641331659520 implements MigrationInterface {
+export class UserMigration1641653379663 implements MigrationInterface {
 
     public async up(queryRunner: QueryRunner): Promise<void> {
         await queryRunner.createTable(new Table({
-            name: "books",
+            name: "users",
             columns: [
                 {
                     name: "id",
@@ -14,19 +14,15 @@ export class BookMigration1641331659520 implements MigrationInterface {
                     generationStrategy: 'increment',
                 },
                 {
-                    name: "title",
+                    name: "name",
                     type: "varchar",
                 },
                 {
-                    name: "description",
+                    name: "email",
                     type: "varchar",
                 },
                 {
-                    name: "thumbnail",
-                    type: "varchar",
-                },
-                {
-                    name: "author",
+                    name: "password",
                     type: "varchar",
                 },
                 {
@@ -40,11 +36,11 @@ export class BookMigration1641331659520 implements MigrationInterface {
                     default: 'now()'
                 }
             ]
-        }), true)
+        }), true);
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("books");
+        await queryRunner.dropTable("users");
     }
 
 }
