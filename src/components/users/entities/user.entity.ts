@@ -13,7 +13,7 @@ export class Users {
   email: string;
 
   @Column()
-  password: string;
+  password?: string;
 
   @Column({ default: null, type:"datetime"})
   created_at?:  Date;
